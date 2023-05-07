@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/plugins/chartjs-plugin-filler.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        const semanas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+        const allDataSets = [
+            {
+                label: 'Fase Inicio, Obj 1',
+                data: [25, 20, 17, 17, 17, 13, 13, 9, 9, 4, 4, 8, 6, 2, 1, 1],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Inicio, Obj 2',
+                data: [37, 52, 59, 58, 58, 53, 49, 49, 39, 35, 30, 22, 18, 13, 13, 13],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Inicio, Obj 3',
+                data: [4, 24, 31, 37, 37, 37, 35, 25, 23, 10, 10, 6, 5, 1, 1, 1],
+                backgroundColor: [
+                    'rgba(27, 197, 127, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(27, 197, 127, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Inicio, Obj 4',
+                data: [6, 12, 22, 22, 22, 22, 22, 22, 21, 17, 17, 12, 6, 6, 6, 6],
+                backgroundColor: [
+                    'rgba(250, 190, 120, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(250, 190, 120, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+
+            {
+                label: 'Fase Elaboracion, Obj 1',
+                data: [1, 1, 5, 5, 5, 16, 17, 12, 12, 11, 15, 6, 6, 4, 4, 2],
+                backgroundColor: [
+                    'rgba(62, 10, 245, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(62, 10, 245, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Elaboración, Obj 2',
+                data: [1, 1, 25, 34, 33, 45, 53, 53, 53, 61, 45, 30, 25, 10, 7, 4],
+                backgroundColor: [
+                    'rgba(245, 92, 10, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(245, 92, 10, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Elaboración, Obj 3',
+                data: [1, 1, 1, 7, 7, 7, 21, 30, 36, 32, 28, 22, 12, 6, 5, 4],
+                backgroundColor: [
+                    'rgba(1, 24, 130, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(1, 24, 130, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Elaboración, Obj 4',
+                data: [1, 1, 5, 15, 16, 16, 16, 16, 10, 6, 9, 9, 9, 9, 4, 2],
+                backgroundColor: [
+                    'rgba(0, 0, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Construccion, Obj 1',
+                data: [1, 1, 9, 21, 21, 6, 1, 1, 7, 20, 20, 10, 2, 1, 1, 1],
+                backgroundColor: [
+                    'rgba(0, 0, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Construccion, Obj 2',
+                data: [1, 1, 4, 45, 74, 86, 55, 29, 1, 1, 23, 38, 16, 1, 1, 1],
+                backgroundColor: [
+                    'rgba(70, 15, 250, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(70, 15, 250, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Construccion, Obj 3',
+                data: [1, 1, 1, 25, 47, 47, 22, 13, 13, 41, 41, 13, 3, 1, 1, 1],
+                backgroundColor: [
+                    'rgba(170, 150, 250, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(170, 150, 250, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+            {
+                label: 'Fase Construccion, Obj 4',
+                data: [1, 1, 1, 21, 21, 21, 16, 1, 1, 1, 1, 10, 14, 14, 1, 1],
+                backgroundColor: [
+                    'rgba(250, 50, 25, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(250, 50, 25, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Transición, Obj 1',
+                data: [9, 21, 21, 21, 6, 1, 1, 1, 7, 21, 21, 11, 1, 1, 12, 1],
+                backgroundColor: [
+                    'rgba(250, 50, 25, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(250, 50, 25, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Transición, Obj 2',
+                data: [4, 45, 74, 86, 55, 29, 1, 1, 1, 1, 23, 38, 16, 4, 4, 4, 4],
+                backgroundColor: [
+                    'rgba(170, 150, 250, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(170, 150, 250, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Transición, Obj 3',
+                data: [25, 47, 47, 47, 47, 22, 13, 13, 41, 41, 41, 13, 3, 3, 3, 3],
+                backgroundColor: [
+                    'rgba(70, 15, 250, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(70, 15, 250, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+
+            {
+                label: 'Fase Transición, Obj 4',
+                data: [21, 21, 21, 16, 1, 1, 1, 1, 10, 14, 14, 1, 1, 1, 1, 1, 1],
+                backgroundColor: [
+                    'rgba(170, 150, 250, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(170, 150, 250, 1.0)'
+                ],
+                borderWidth: 1,
+                fill: 'start'
+            },
+        ];
+
+        const data = {
+            labels: semanas,
+            datasets: allDataSets
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    filler: {
+                        propagate: true
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+    </script>
+</body>
+
+</html>
